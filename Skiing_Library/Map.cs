@@ -45,5 +45,25 @@ namespace Skiing_Library
                 collisions++;
             }
         }
+
+        public int GetBestSlope()
+        {
+            int lowestCollisions = int.MaxValue;
+            int bestSlope = 0;
+
+            for (int slope = 0; slope < Width; ++slope)
+            {
+                collisions = 0;
+                SkiSlope(slope);
+                if (collisions < lowestCollisions)
+                {
+                    lowestCollisions = collisions;
+                    bestSlope = slope;
+                }
+                Console.WriteLine($"Slope: {slope}:1, Collisions: {collisions}");
+            }
+
+            return bestSlope;
+        }
     }
 }

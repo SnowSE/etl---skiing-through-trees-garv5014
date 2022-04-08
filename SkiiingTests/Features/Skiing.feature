@@ -23,3 +23,8 @@ Scenario: Ski a Slope
 	Given a slope of 1:1
 	When the skier reaches the bottom
 	Then they hit 2 trees
+
+Scenario: Best Slope
+	Given a file path TreeMap.txt
+	When we test every slope
+	Then our best slope is 3

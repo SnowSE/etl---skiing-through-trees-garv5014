@@ -8,9 +8,7 @@ namespace Skiing_Amongst_Trees
         static void Main(string[] args)
         {
             Map map = new Map("TreeMap.txt");
-            map.SkiSlope(3);
-            Console.WriteLine(map.collisions);
-
+            Console.WriteLine($"Your best slope was {map.GetBestSlope()}:1");
         }
     }
 }

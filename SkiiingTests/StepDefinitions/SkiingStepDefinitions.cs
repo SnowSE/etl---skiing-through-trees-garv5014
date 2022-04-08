@@ -18,7 +18,7 @@ namespace SkiiingTests.StepDefinitions
         [Given(@"a file path (.*)")]
         public void GivenAFilePath(string p0)
         {
-            Map map = new Map();
+            Map map = new Map(p0);
             context.Add("Map", map);
             context.Add("path", p0);
         }
@@ -40,7 +40,7 @@ namespace SkiiingTests.StepDefinitions
         {
             Map map = new Map();
             map.Width = p0;
-            context.Add("MapWithWidth",map);
+            context.Add("Map",map);
             context.Add("skierPos", map.Width - 1);
         }
 
@@ -48,7 +48,7 @@ namespace SkiiingTests.StepDefinitions
         public void WhenTheyAdvance()
         {
             int newSkierPos = context.Get<int>("skierPos") + context.Get<int>("Slope");
-            newSkierPos = context.Get<Map>("MapWithWidth").GetLoopIndex(newSkierPos);
+            newSkierPos = context.Get<Map>("Map").GetLoopIndex(newSkierPos);
             context.Set(newSkierPos, "skierPos");
         }
 
@@ -77,5 +77,19 @@ namespace SkiiingTests.StepDefinitions
         {
             context.Get<int>("treesHit").Should().Be(p0);
         }
+
+        [When(@"we test every slope")]
+        public void WhenWeTestEverySlope()
+        {
+            int bestSlope = context.Get<Map>("Map").GetBestSlope();
+            context.Add("bestSlope", bestSlope);
+        }
+
+        [Then(@"our best slope is (.*)")]
+        public void ThenOurBestSlopeIs(int p0)
+        {
+            context.Get<int>("bestSlope").Should().Be(p0);
+        }
+
     }
 }
