@@ -1,4 +1,5 @@
 ﻿using System;
+using Skiing_Library;
 
 namespace Skiing_Amongst_Trees
 {
@@ -6,7 +7,10 @@ namespace Skiing_Amongst_Trees
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!"); 
+            Map map = new Map("TreeMap.txt");
+            map.SkiSlope(3);
+            Console.WriteLine(map.collisions);
+
         }
     }
 }

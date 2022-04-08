@@ -20,4 +20,15 @@
     <Folder Include="Support\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Skiing_Amongst_Trees\Skiing_Amongst_Trees.csproj" />
+    <ProjectReference Include="..\Skiing_Library\Skiing_Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TreeMap.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

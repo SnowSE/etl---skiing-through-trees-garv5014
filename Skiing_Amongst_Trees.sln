@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skiing_Amongst_Trees", "Skiing_Amongst_Trees\Skiing_Amongst_Trees.csproj", "{E2288C44-83F3-44C7-808F-493EE1D5D697}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkiiingTests", "SkiiingTests\SkiiingTests.csproj", "{0019F2BC-C91B-438D-ABA0-6F29845026A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkiiingTests", "SkiiingTests\SkiiingTests.csproj", "{0019F2BC-C91B-438D-ABA0-6F29845026A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skiing_Library", "Skiing_Library\Skiing_Library.csproj", "{0C5E9CB0-EEC7-4448-A00C-5BC1B1396F91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0019F2BC-C91B-438D-ABA0-6F29845026A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0019F2BC-C91B-438D-ABA0-6F29845026A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0019F2BC-C91B-438D-ABA0-6F29845026A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C5E9CB0-EEC7-4448-A00C-5BC1B1396F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C5E9CB0-EEC7-4448-A00C-5BC1B1396F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C5E9CB0-EEC7-4448-A00C-5BC1B1396F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C5E9CB0-EEC7-4448-A00C-5BC1B1396F91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Skiing_Amongst_Trees": {
+      "commandName": "Project",
+      "workingDirectory": "$(projectdir)"
+    }
+  }
+}
