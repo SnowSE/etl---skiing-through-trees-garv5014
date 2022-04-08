@@ -68,8 +68,8 @@ namespace SkiiingTests.StepDefinitions
         public void WhenTheSkierReachesTheBottom()
         {
             Map mapFinished = new("TreeMap.txt");
-            int collisions = mapFinished.SkiSlope(context.Get<int>("Slope"));
-            context.Add("treesHit", collisions);
+            mapFinished.SkiSlope(context.Get<int>("Slope"));
+            context.Add("treesHit", mapFinished.collisions);
         }
 
         [Then(@"they hit (.*) trees")]
