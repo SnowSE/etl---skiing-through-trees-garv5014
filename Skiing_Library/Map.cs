@@ -4,23 +4,27 @@ namespace Skiing_Library
 {
     public class Map
     {
-        public string[] MapTiles { get; set; }
+        public string[] MapRows { get; set; } 
         public int Width { get; set; }
-        public int collisions { get; set; } = 0;
+        public int Collisions { get; set; } = 0;
+        private int bestSlope = 0;
+        private int leastCollisions = int.MaxValue;
+
+
 
         public Map()
         {
-
+            Width = 0;
         }
         public Map(string filePath)
         {
             ReadTreeMap(filePath);
         }
 
-        public void ReadTreeMap(string mapPath)
+        private void ReadTreeMap(string mapPath)
         {
-            MapTiles = File.ReadAllLines(mapPath);
-            Width = MapTiles[0].Length;
+            MapRows = File.ReadAllLines(mapPath);
+            Width = MapRows[0].Length;
         }
 
         public int GetLoopIndex(int xPos)
@@ -31,39 +35,46 @@ namespace Skiing_Library
         public void SkiSlope(int slope)
         {
             int xPos = 0;
-            for (int i = 0; i < MapTiles.Length; i++)
+            for (int i = 0; i < MapRows.Length; i++)
             {
                 UpdateCollision(xPos, i);
                 xPos += slope;
             }
         }
 
-        private void UpdateCollision(int xPos, int i)
+        private void UpdateCollision(int xPos, int row)
         {
-            if (MapTiles[i][GetLoopIndex(xPos)] == '#')
+            if (CollisionOccurs(xPos, row)) //Make own function?
             {
-                collisions++;
+                Collisions++;
             }
+        }
+
+        private bool CollisionOccurs(int xPos, int row)
+        {
+            return MapRows[row][GetLoopIndex(xPos)] == '#';
         }
 
         public int GetBestSlope()
         {
-            int lowestCollisions = int.MaxValue;
-            int bestSlope = 0;
-
             for (int slope = 0; slope < Width; ++slope)
             {
-                collisions = 0;
-                SkiSlope(slope);
-                if (collisions < lowestCollisions)
-                {
-                    lowestCollisions = collisions;
-                    bestSlope = slope;
-                }
-                Console.WriteLine($"Slope: {slope}:1, Collisions: {collisions}");
+                UpdateBestSlope(slope);
             }
 
             return bestSlope;
+        }
+
+        private void UpdateBestSlope(int slope)
+        {
+            Collisions = 0;
+            SkiSlope(slope);
+            if (Collisions < leastCollisions)
+            {
+                leastCollisions = Collisions;
+                bestSlope = slope;
+            }
+            Console.WriteLine($"Slope: {slope}:1, Collisions: {Collisions}");
         }
     }
 }

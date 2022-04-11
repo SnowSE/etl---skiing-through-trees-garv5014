@@ -20,19 +20,19 @@ namespace SkiiingTests.StepDefinitions
         {
             Map map = new Map(p0);
             context.Add("Map", map);
-            context.Add("path", p0);
+            
         }
 
         [When(@"we read it in")]
         public void WhenWeReadItIn()
         {
-            context.Get<Map>("Map").ReadTreeMap(context.Get<string>("path"));
+            
         }
 
         [Then(@"string array is not null")]
         public void ThenStringArrayIsNotNull()
         {
-            context.Get<Map>("Map").MapTiles.Should().NotBeNull();
+            context.Get<Map>("Map").MapRows.Should().NotBeNull();
         }
 
         [Given(@"the skier is at the end of the map of width (.*)")]
@@ -69,7 +69,7 @@ namespace SkiiingTests.StepDefinitions
         {
             Map mapFinished = new("TreeMap.txt");
             mapFinished.SkiSlope(context.Get<int>("Slope"));
-            context.Add("treesHit", mapFinished.collisions);
+            context.Add("treesHit", mapFinished.Collisions);
         }
 
         [Then(@"they hit (.*) trees")]
